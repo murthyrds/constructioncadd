@@ -1,0 +1,50 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Details";    
+}
+<div class="content">
+    <div class="container-fluid my_board">
+        <div class="col-md-12">
+            <div class="whitebox">
+            <form asp-action="post" asp-antiforgery="true">
+                         <table class="table table-bordered">
+                               
+                                <tr>
+                                    <td >
+                                        <label asp-for="@Model.Id">User Id: </label>
+                                    </td>
+                                    <td>
+                                        <p>@Model.Id</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label asp-for="@Model.UserName">User Name: </label>
+                                    </td>
+                                    <td>
+                                        <p>@Model.UserName</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label asp-for="@Model.Email">Email: </label>
+                                    </td>
+                                    <td>
+                                        <p>@Model.Email</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label asp-for="@Model.PhoneNumber">Phone Number:</label>
+                                    </td>
+                                    <td>
+                                        <p>@Model.PhoneNumber</p>
+                                    </td>
+                                </tr>
+                            </table>
+                      
+                        <a asp-action="Index" asp-controller="Home" class="btn btn-primary">Cancel</a>
+                    </form>
+              </div></div></div></div>
+
+

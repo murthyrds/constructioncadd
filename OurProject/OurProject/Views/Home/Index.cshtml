@@ -1,0 +1,51 @@
+﻿@model DetailsModel
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+
+<!--table start here-->
+<div class="content">
+    <div class="container-fluid my_board">
+        <div class="col-md-12">
+            <div class="whitebox">
+                <div class="whitebox_head"><img src="~/images/pie-chart.png" width="35px">   Dashboard</div>
+                <div class="text-right">
+                    <a class="btn btn-primary m-b-2" asp-controller="Account" asp-action="Register"><i class="fa fa-plus"></i> Create</a>
+                </div>
+                <div class="clearfix"></div>
+                <table class="table">
+                    <tr class="active text-uppercase">
+                        <th>User Id </th>
+                        <th>Name </th>
+                        <th>Email Id</th>
+                        <th>Phone Number</th>
+                        <th>Details</th>
+                        <td>Edit</td>
+                    </tr>
+
+                    @foreach (var userdetails in Model.users)
+        {
+            @Html.Partial("_Summary", userdetails);
+}
+
+                </table>
+            </div>
+            </div></div></div>
+        </div>

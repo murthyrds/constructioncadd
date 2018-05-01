@@ -1,0 +1,86 @@
+﻿@model Project
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="content">
+    <div class="container-fluid my_board">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="whitebox">
+                    <form  class="row" method="post" asp-antiforgery="true" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label asp-for="ProjectNumber"> Project Number: </label>
+                                <input asp-for="ProjectNumber" class="form-control " />
+                                <span asp-validation-for="ProjectNumber"></span>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label asp-for="ProjectName"> Project Name: </label>
+                                <input asp-for="ProjectName" class="form-control " />
+                                <span asp-validation-for="ProjectName"></span>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label asp-for="StockLength">Stock Length: </label>
+                                <input asp-for="StockLength" class="form-control" />
+                                <span asp-validation-for="StockLength"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label asp-for="StandardsType"> Standards Type: </label>
+                                @Html.DropDownListFor(m => m.StandardsType, Html.GetEnumSelectList(typeof(standardstype)))
+                                <span asp-validation-for="StandardsType"></span>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label asp-for="AccessoriesList">Accessories List: </label>
+                                @Html.DropDownListFor(d => d.AccessoriesList, Html.GetEnumSelectList(typeof(Accessories)));
+                                @*<select asp-for="AccessoriesList" asp-items="@Html.GetEnumSelectList(typeof(Accessories))"></select>*@
+                                <span asp-validation-for="AccessoriesList"></span>
+                            </div>
+                            <div class="form-group col-md-4 ">
+                                <input type="file" name="file"  class="form-control"/>
+                                @*<button type="submit">Upload File</button>*@
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label asp-for="SuportBar">Support Bar: </label>
+                                <input asp-for="SuportBar" class="form-control" />
+                                <span asp-validation-for="SuportBar"></span>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label asp-for="TitleBlock">Title Block: </label>
+                                <input asp-for="TitleBlock" class="form-control" />
+                                <span asp-validation-for="TitleBlock"></span>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label asp-for="Description">Description: </label>
+                                <textarea rows="5" class="form-control" asp-for="Description">Description</textarea>
+                                <span asp-validation-for="Description"></span>
+                            </div>
+                            </div>
+
+                            @*<div>
+                <label asp-for="Link">Attachments Link: </label>
+                <textarea asp-for="Link" />
+                <span asp-validation-for="Link"></span>
+            </div>*@
+
+                            <div class="col-md-12">
+                                <input class="btn btn-primary " type="submit" value="Create Project" />
+                            </div>
+                    </form>
+                    @*<form asp-controller="Attachments" asp-action="UploadFile" method="post"
+                          enctype="multipart/form-data">
+
+                        <input type="file" name="file" />
+                        <button type="submit">Upload File</button>
+                    </form>*@
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+

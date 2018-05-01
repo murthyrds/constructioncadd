@@ -1,0 +1,43 @@
+﻿@model Project
+
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+
+            @*<h3 class="panel-heading"> @Model.ProjectName</h3>
+                <div class="panel-body">
+                    Standard Type : @Model.StandardsType
+                </div>*@
+            @*<div class="panel-footer">
+                    <a class="btn btn-primary" asp-action="Details" asp-route-id="@Model.ProjectId">Detail</a>
+                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.ProjectId">Edit</a>
+                </div>*@
+
+
+            <tr>
+                <td>@Model.ProjectNumber</td>
+                <td>@Model.ProjectName</td>
+                <td>@Model.StockLength</td>
+                <td>@Model.StandardsType</td>
+                <td>@Model.AccessoriesList</td>
+                <td>@Model.SuportBar</td>
+                <td>@Model.TitleBlock</td>
+                <td><a class="btn btn-primary" asp-action="Details" asp-route-id="@Model.ProjectId">Detail</a> </td>
+                <td><a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.ProjectId">Edit</a></td>
+            </tr>
+
+ 

@@ -1,0 +1,16 @@
+﻿@model FilesViewModel
+@{
+    ViewData["Title"] = "Files";
+}
+
+<ul>
+    @foreach(var item in Model.Files)
+    {
+        <li>
+            <a asp-action="Download" asp-route-filename="@item.Name"> @item.Name</a>            
+        </li>
+    }
+</ul>
+
+
+

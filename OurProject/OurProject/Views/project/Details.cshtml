@@ -1,0 +1,46 @@
+﻿@model ProjectDetailsModel
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+@{
+    ViewData["Title"] = "Details";
+}
+<div class="content">
+    <div class="container-fluid my_board">
+        <div class="col-md-12">
+            <div class="whitebox">
+                <table class="table">
+                    <tr class="active">
+                        <th>Project Id</th>
+                        <th>Project Name</th>
+                        <th>Stock Length</th>
+                        <th>Standards Type</th>
+                        <th>Accessories List</th>
+                        <th>Support Bar</th>
+                        <th>Title Block</th>
+                        <th>View</th>
+                        <th>Edit</th>
+                    </tr>
+                    @foreach (var prjdetails in Model.Projects)
+                    {
+                        @Html.Partial("_Summary", prjdetails);
+                    }
+                </table>
+                </div> 
+            </div> 
+        </div>
+ </div>
