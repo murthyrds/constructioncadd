@@ -1,4 +1,8 @@
-﻿@model ProjectDetailsModel
+﻿@*@model ReflectionIT.Mvc.Paging.PagingList<ProjectDetailsModel>
+@using ReflectionIT.Mvc.Paging
+@addTagHelper *, ReflectionIT.Mvc.Paging*@
+@model ProjectDetailsModel
+
 <style>
     table {
         font-family: arial, sans-serif;
@@ -17,7 +21,7 @@
     }
 </style>
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Index";
 }
 <div class="content">
     <div class="container-fluid my_board">
@@ -44,3 +48,6 @@
             </div> 
         </div>
  </div>
+<nav aria-label="project details navigation">
+    <vc:pager paging-list="@Model" />
+</nav>

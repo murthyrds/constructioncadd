@@ -11,6 +11,7 @@ using Microsoft.Extensions.Logging;
 using OurProject.Entities;
 using OurProject.Middleware;
 using OurProject.Services;
+using ReflectionIT.Mvc.Paging;
 using System;
 using System.IO;
 using System.Threading.Tasks;
@@ -44,6 +45,7 @@ namespace OurProject
             services.AddDbContext<OurProjectDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<OurProjectDbContext>();
+            services.AddPaging();
             //services.AddIdentity<Role, IdentityRole>()
             //    .AddEntityFrameworkStores<OurProjectDbContext>();
         }
