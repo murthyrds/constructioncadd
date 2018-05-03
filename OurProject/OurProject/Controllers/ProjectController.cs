@@ -11,6 +11,9 @@ using Microsoft.AspNetCore.Identity;
 using System;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using ReflectionIT.Mvc.Paging;
 
 namespace OurProject.Controllers
 {
@@ -22,13 +25,16 @@ namespace OurProject.Controllers
         private UserManager<User> _userManager;
         private readonly IHostingEnvironment _env;
         private readonly IFileProvider _fileProvider;
+        private readonly OurProjectDbContext _context;
 
-        public ProjectController(IProjectData projectData, UserManager<User> userManager, IHostingEnvironment env, IFileProvider fileProvider)
+        public ProjectController(IProjectData projectData, UserManager<User> userManager, IHostingEnvironment env, 
+            IFileProvider fileProvider, OurProjectDbContext Context)
         {
             _projectData = projectData;
             _userManager = userManager;
             _env = env;
            this._fileProvider = fileProvider;
+            _context = Context;
         }
         [HttpGet]
         public IActionResult Create()
@@ -98,14 +104,19 @@ namespace OurProject.Controllers
         }
 
         [HttpGet]
-        public IActionResult Details()
+        public async Task<IActionResult> Details(int page=1)
         {
             var model = new ProjectDetailsModel();
             model.Projects = _projectData.GetAll();
             return View(model);
 
-        }
+            //return View(await _context.Projects.ToListAsync());
 
+            //var qry = _context.Projects.AsNoTracking().OrderBy(p => p.ProjectName);
+            //var model = await PagingList.CreateAsync(qry, 10, page);
+            //return View(model);
+        }
+        
         [HttpGet]
         public IActionResult Edit(int id)
         {

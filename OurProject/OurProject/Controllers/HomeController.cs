@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using OurProject.Entities;
 using OurProject.Models;
@@ -18,13 +19,14 @@ namespace OurProject.Controllers
             _userData = userData;
             _userManager = userManager;
         }
+        [Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
             var model = new DetailsModel();
             model.users = _userData.GetAll();
 
             return View(model);
-        }
+        }        
         public IActionResult Details(string id)
         {
             var model = _userData.Get(id);

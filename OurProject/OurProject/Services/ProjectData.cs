@@ -1,7 +1,10 @@
-﻿using OurProject.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using OurProject.Entities;
+using ReflectionIT.Mvc.Paging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace OurProject.Services
 {
@@ -36,11 +39,18 @@ namespace OurProject.Services
         public Project Get(int id)
         {
             return _context.Projects.FirstOrDefault(r => r.ProjectId == id);
-        }
+        }     
+
+        //public async Task<IEnumerable<Project>> GetAll(int page=1)
+        //{
+        //    var qry = _context.Projects.AsNoTracking().OrderBy(p => p.ProjectName);
+        //    var model = await PagingList.CreateAsync(qry, 10, page);
+        //    return model;
+        //}
 
         public IEnumerable<Project> GetAll()
         {
             return _context.Projects;
-        }        
+        }
     }   
 }

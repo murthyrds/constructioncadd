@@ -87,8 +87,8 @@ namespace OurProject
 
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env,
-            ILoggerFactory loggerFactory, IServiceProvider service)
+        public async void Configure(IApplicationBuilder app, IHostingEnvironment env,
+            ILoggerFactory loggerFactory, IServiceProvider service, RoleManager<IdentityRole> roleManager)
         {
             loggerFactory.AddConsole();
 
@@ -111,6 +111,9 @@ namespace OurProject
 #pragma warning restore CS0618 // Type or member is obsolete
             app.UseMvc(ConfigureRoutes);
             app.Run(ctx => ctx.Response.WriteAsync("Not found"));
+
+            await RoleInitializer.Initialize(roleManager);
+
         }
         private void ConfigureRoutes(IRouteBuilder routeBuilder)
         {

@@ -9,12 +9,15 @@ namespace OurProject.Controllers
     public class AccountController : Controller
     {        
         private UserManager<User> _userManager;
-        private SignInManager<User> _signInManager;           
+        private SignInManager<User> _signInManager;
+        private RoleManager<IdentityRole> _roleManager;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, 
+            RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
-            _signInManager = signInManager;           
+            _signInManager = signInManager;
+            _roleManager = roleManager;
         }
 
         //call the Register page.
@@ -36,6 +39,17 @@ namespace OurProject.Controllers
                 
                 if(createResult.Succeeded)
                 {
+                    //if(!await _roleManager.RoleExistsAsync("Admin"))
+                    //{
+                    //    var users = new IdentityRole("Admin");
+                    //    var res = await _roleManager.CreateAsync(users);
+                    //    if (res.Succeeded)
+                    //    {
+                    //        await _userManager.AddToRoleAsync(user, "Admin");
+                    //        await _signInManager.SignInAsync(user, false);
+                    //        return RedirectToAction("Index", "Home");
+                    //    }                        
+                    //}
                     await _signInManager.SignInAsync(user, false);
                     return RedirectToAction("Index", "Home");                    
                 }

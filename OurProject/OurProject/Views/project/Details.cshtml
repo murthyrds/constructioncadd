@@ -1,6 +1,6 @@
-﻿@*@model ReflectionIT.Mvc.Paging.PagingList<ProjectDetailsModel>
-@using ReflectionIT.Mvc.Paging
-@addTagHelper *, ReflectionIT.Mvc.Paging*@
+﻿@*@model ReflectionIT.Mvc.Paging.PagingList<ProjectModel>
+    @using ReflectionIT.Mvc.Paging
+    @addTagHelper *, ReflectionIT.Mvc.Paging*@
 @model ProjectDetailsModel
 
 <style>
@@ -23,6 +23,10 @@
 @{
     ViewData["Title"] = "Index";
 }
+
+@*<nav>
+    @await this.Component.InvokeAsync("pager", new { PagedList = this.Model })
+</nav>*@
 <div class="content">
     <div class="container-fluid my_board">
         <div class="col-md-12">
@@ -43,11 +47,24 @@
                     {
                         @Html.Partial("_Summary", prjdetails);
                     }
+
+                    @*<tr>
+                            <td>@Model.ProjectNumber</td>
+                            <td>@Model.ProjectName</td>
+                            <td>@Model.StockLength</td>
+                            <td>@Model.StandardsType</td>
+                            <td>@Model.AccessoriesList</td>
+                            <td>@Model.SuportBar</td>
+                            <td>@Model.TitleBlock</td>
+                            <td><a class="btn btn-primary" asp-action="Details" asp-route-id="@Model.ProjectId">Detail</a> </td>
+                            <td><a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.ProjectId">Edit</a></td>
+                        </tr>*@
+
                 </table>
-                </div> 
-            </div> 
+            </div>
         </div>
- </div>
+    </div>
+</div>
 <nav aria-label="project details navigation">
     <vc:pager paging-list="@Model" />
 </nav>
