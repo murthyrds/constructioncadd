@@ -112,7 +112,7 @@ namespace OurProject
             app.UseMvc(ConfigureRoutes);
             app.Run(ctx => ctx.Response.WriteAsync("Not found"));
 
-            await RoleInitializer.Initialize(roleManager);
+            //await RoleInitializer.Initialize(roleManager);
 
         }
         private void ConfigureRoutes(IRouteBuilder routeBuilder)

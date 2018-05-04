@@ -14,9 +14,9 @@ E:\final setup\OurProject\OurProject\bin\Debug\netcoreapp2.0\OurProject.runtimec
 E:\final setup\OurProject\OurProject\bin\Debug\netcoreapp2.0\OurProject.runtimeconfig.dev.json
 E:\final setup\OurProject\OurProject\bin\Debug\netcoreapp2.0\OurProject.dll
 E:\final setup\OurProject\OurProject\bin\Debug\netcoreapp2.0\OurProject.pdb
+E:\final setup\OurProject\OurProject\obj\Debug\netcoreapp2.0\OurProject.csprojResolveAssemblyReference.cache
 E:\final setup\OurProject\OurProject\obj\Debug\netcoreapp2.0\OurProject.csproj.CoreCompileInputs.cache
 E:\final setup\OurProject\OurProject\obj\Debug\netcoreapp2.0\OurProject.AssemblyInfoInputs.cache
 E:\final setup\OurProject\OurProject\obj\Debug\netcoreapp2.0\OurProject.AssemblyInfo.cs
 E:\final setup\OurProject\OurProject\obj\Debug\netcoreapp2.0\OurProject.dll
 E:\final setup\OurProject\OurProject\obj\Debug\netcoreapp2.0\OurProject.pdb
-E:\final setup\OurProject\OurProject\obj\Debug\netcoreapp2.0\OurProject.csprojResolveAssemblyReference.cache

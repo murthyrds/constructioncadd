@@ -3,7 +3,6 @@
 namespace OurProject.Entities
 {
     public class User : IdentityUser
-    {
-        
+    {        
     }
 }

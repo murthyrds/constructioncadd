@@ -17,6 +17,11 @@ namespace OurProject.Models
         public string Email { get; set; }
 
         [Required,DataType(DataType.PhoneNumber)]
-        public string PhoneNumber { get; set; }        
+        public string PhoneNumber { get; set; }
+
+        [Required]
+        [Display(Name ="UserRoles")]
+        public string UserRoles { get; set; }
+
     }
 }
