@@ -19,7 +19,6 @@ namespace OurProject.Models
         [Required,DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }
 
-        [Required]
         [Display(Name ="UserRoles")]
         public string UserRoles { get; set; }
 

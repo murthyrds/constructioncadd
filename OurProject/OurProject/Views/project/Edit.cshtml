@@ -6,80 +6,89 @@
 }
 
 
+<div class="content">
+    <div class="container-fluid my_board">
+        <div class="col-md-12">
+            <div class="whitebox">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4">
+                        <form method="post" asp-antiforgery="true" enctype="multipart/form-data">
+                            <div>
+                                <label asp-for="ProjectNumber"> Project Number: </label>
+                                <input asp-for="ProjectNumber" class="form-control" />
+                                <span asp-validation-for="ProjectNumber"></span>
+                            </div>
+                            <div>
+                                <label asp-for="ProjectName"> Project Name: </label>
+                                <input asp-for="ProjectName" class="form-control" />
+                                <span asp-validation-for="ProjectName"></span>
+                            </div>
+                            <div>
+                                <label asp-for="StockLength">Stock Length: </label>
+                                <input asp-for="StockLength" class="form-control" />
+                                <span asp-validation-for="StockLength"></span>
+                            </div>
+                            <div>
+                                <label asp-for="StandardsType"> Standards Type: </label>
+                                <select asp-for="StandardsType" asp-items="@Html.GetEnumSelectList(typeof(standardstype))" class="form-control"></select>
+                                @*@Html.DropDownListFor(m => m.StandardsType, Html.GetEnumSelectList(typeof(standardstype)))*@
+                                <span asp-validation-for="StandardsType"></span>
+                            </div>
+                            <div>
+                                <label asp-for="AccessoriesList">Accessories List: </label>
+                                <select asp-for="AccessoriesList" asp-items="@Html.GetEnumSelectList(typeof(Accessories))" class="form-control"></select>
+                                <span asp-validation-for="AccessoriesList"></span>
+                            </div>
+                            <div>
+                                <label asp-for="SuportBar">Support Bar: </label>
+                                <input asp-for="SuportBar" class="form-control" />
+                                <span asp-validation-for="SuportBar"></span>
+                            </div>
+                            <div>
+                                <label asp-for="TitleBlock">Title Block: </label>
+                                <input asp-for="TitleBlock" class="form-control" />
+                                <span asp-validation-for="TitleBlock"></span>
+                            </div>
 
-<center>
-    <form method="post" asp-antiforgery="true" enctype="multipart/form-data">
-        <div>
-            <label asp-for="ProjectNumber"> Project Number: </label>
-            <input asp-for="ProjectNumber" />
-            <span asp-validation-for="ProjectNumber"></span>
-        </div>
-        <div>
-            <label asp-for="ProjectName"> Project Name: </label>
-            <input asp-for="ProjectName" />
-            <span asp-validation-for="ProjectName"></span>
-        </div>
-        <div>
-            <label asp-for="StockLength">Stock Length: </label>
-            <input asp-for="StockLength" />
-            <span asp-validation-for="StockLength"></span>
-        </div>
-        <div>
-            <label asp-for="StandardsType"> Standards Type: </label>
-            <select asp-for="StandardsType" asp-items="@Html.GetEnumSelectList(typeof(standardstype))"></select>
-            @*@Html.DropDownListFor(m => m.StandardsType, Html.GetEnumSelectList(typeof(standardstype)))*@
-            <span asp-validation-for="StandardsType"></span>
-        </div>
-        <div>
-            <label asp-for="AccessoriesList">Accessories List: </label>
-            <select asp-for="AccessoriesList" asp-items="@Html.GetEnumSelectList(typeof(Accessories))"></select>
-            <span asp-validation-for="AccessoriesList"></span>
-        </div>
-        <div>
-            <label asp-for="SuportBar">Support Bar: </label>
-            <input asp-for="SuportBar" />
-            <span asp-validation-for="SuportBar"></span>
-        </div>
-        <div>
-            <label asp-for="TitleBlock">Title Block: </label>
-            <input asp-for="TitleBlock" />
-            <span asp-validation-for="TitleBlock"></span>
-        </div>
-        <div>
-            <label asp-for="Description">Description: </label>
-            <textarea asp-for="Description">Description</textarea>
-            <span asp-validation-for="Description"></span>
-        </div>
+                            <div>
+                                <label asp-for="Description">Description: </label>
+                                <textarea asp-for="Description" class="form-control" rows="5">Description</textarea>
+                                <span asp-validation-for="Description"></span>
+                            </div>
+                            <br />
+                            @*Get the attachments.*@
 
-        @*Get the attachments.*@
-
-        <div>
-           @* @Html.Partial("_Attach");*@
+                            <div>
+                                @* @Html.Partial("_Attach");*@
 
 
-            @*@foreach (var item in Model.Files)
+                                @*@foreach (var item in Model.Files)
             {
                 <li>
                     <a asp-action="Download" asp-route-filename="@item.Name"> @item.Name</a>
                 </li>
             }*@
-        </div>
+                            </div>
 
 
 
-        <div>
-            <input type="file" name="file" />
-        </div>
+                            <div>
+                                <input type="file" name="file" />
+                            </div>
 
-        <a asp-action="Files" asp-controller="Attachments"> Click</a>
-        @*<div>
-                <label asp-for="Link">Attachments_Link: </label>
-                <textarea asp-for="Link" />
-                <span asp-validation-for="Link"></span>
-            </div>*@
-        <div>
-            <input class="btn btn-primary" type="submit" value="Save Project" />
-            <a class="btn btn-primary" asp-action="Details" asp-controller="Project">Cancel</a>
-        </div>
-    </form>
-</center>
+                            <a asp-action="Files" asp-controller="Attachments"> Click</a>
+                            @*<div>
+            <label asp-for="Link">Attachments_Link: </label>
+            <textarea asp-for="Link" />
+            <span asp-validation-for="Link"></span>
+        </div>*@
+                            <div>
+                                <input class="btn btn-primary" type="submit" value="Save Project" />
+                                <a class="btn btn-primary" asp-action="Details" asp-controller="Project">Cancel</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+                </div>
+            </div> </div>

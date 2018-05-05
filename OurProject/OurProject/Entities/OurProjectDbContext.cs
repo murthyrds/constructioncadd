@@ -11,5 +11,6 @@ namespace OurProject.Entities
         }
         public DbSet<Project> Projects { get; set; }
         public DbSet<Attachment> Attachments { get; set; }
+        public DbSet<User> users { get; set; }
     }
 }

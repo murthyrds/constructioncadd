@@ -45,29 +45,17 @@ namespace OurProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                var dip = new User { UserName = model.Username, Email = model.Email, PhoneNumber = model.PhoneNumber };
+                var user = new User { UserName = model.Username, Email = model.Email,
+                    PhoneNumber = model.PhoneNumber };
                 //var phoneNo = new User { PhoneNumber = model.PhoneNumber };
-                var createResult = await _userManager.CreateAsync(dip, model.Password);
+                var createResult = await _userManager.CreateAsync(user, model.Password);
 
                 if (createResult.Succeeded)
                 {
-                    //createResult = await _userManager.AddToRoleAsync(user.Id, model.UserRoles);
-
-                    //if(!await _roleManager.RoleExistsAsync("Admin"))
-                    //{
-                    //    var users = new IdentityRole("Admin");
-                    //    var res = await _roleManager.CreateAsync(users);
-                    //    if (res.Succeeded)
-                    //    {
-                    //        await _userManager.AddToRoleAsync(user, "Admin");
-                    //        await _signInManager.SignInAsync(user, false);
-                    //        return RedirectToAction("Index", "Home");
-                    //    }                        
-                    //}
-                    await _signInManager.SignInAsync(dip, false);
-                    await this._userManager.AddToRoleAsync(dip.Id, model.UserRoles);
-
-                    return RedirectToAction("Index", "Home");
+                   // var details = new User { UserName = user.Id };    
+                    
+                    await _userManager.AddToRoleAsync(user, model.UserRoles);
+                    return RedirectToAction("Details", "Home");                    
                 }
                 else
                 {
