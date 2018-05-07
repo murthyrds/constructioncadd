@@ -30,10 +30,6 @@ namespace OurProject.Controllers
         [HttpGet]
         public IActionResult Register()
         {
-            //List<SelectListItem> list = new List<SelectListItem>();
-            //foreach (var role in _roleManager.Roles)
-            //    list.Add(new SelectListItem() { Value = role.Name, Text = role.Name });
-            //ViewBag.Roles = list;
             ViewBag.Name = new SelectList(_Context.Roles.Where(u => !u.Name.Contains("Admin"))
                                             .ToList(), "Name", "Name");
             return View();

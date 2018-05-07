@@ -6,6 +6,7 @@ using OurProject.Models;
 using OurProject.Services;
 using PagedList;
 using PagedList.Core.Mvc;
+using System.Collections.Generic;
 
 namespace OurProject.Controllers
 {
@@ -23,10 +24,10 @@ namespace OurProject.Controllers
         public IActionResult Index()
         {
             var model = new DetailsModel();
-            model.users = _userData.GetAll();
-
+            model.users = _userData.GetAll();           
             return View(model);
         }        
+
         public IActionResult Details(string id)
         {
             var model = _userData.Get(id);
