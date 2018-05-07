@@ -31,7 +31,7 @@
     <div class="container-fluid my_board">
         <div class="col-md-12">
             <div class="whitebox">
-                <a asp-action="Create" calss="btn btn-primary">Create Project</a>
+                <a asp-action="Create" calss="btn btn-primary">Create Project</a>             
                 <table class="table">
                     <tr class="active">
                         <th>Project Id</th>
@@ -45,21 +45,21 @@
                         <th>Edit</th>
                     </tr>
                     @foreach (var prjdetails in Model.Projects)
-                    {
-                        @Html.Partial("_Summary", prjdetails);
-                    }
+        {
+            @Html.Partial("_Summary", prjdetails);
+}
 
                     @*<tr>
-                            <td>@Model.ProjectNumber</td>
-                            <td>@Model.ProjectName</td>
-                            <td>@Model.StockLength</td>
-                            <td>@Model.StandardsType</td>
-                            <td>@Model.AccessoriesList</td>
-                            <td>@Model.SuportBar</td>
-                            <td>@Model.TitleBlock</td>
-                            <td><a class="btn btn-primary" asp-action="Details" asp-route-id="@Model.ProjectId">Detail</a> </td>
-                            <td><a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.ProjectId">Edit</a></td>
-                        </tr>*@
+                <td>@Model.ProjectNumber</td>
+                <td>@Model.ProjectName</td>
+                <td>@Model.StockLength</td>
+                <td>@Model.StandardsType</td>
+                <td>@Model.AccessoriesList</td>
+                <td>@Model.SuportBar</td>
+                <td>@Model.TitleBlock</td>
+                <td><a class="btn btn-primary" asp-action="Details" asp-route-id="@Model.ProjectId">Detail</a> </td>
+                <td><a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.ProjectId">Edit</a></td>
+            </tr>*@
 
                 </table>
             </div>

@@ -29,10 +29,10 @@
                 <div class="text-right">
                     <a class="btn btn-primary m-b-2" asp-controller="Account" asp-action="Register"><i class="fa fa-plus"></i> Create</a>
                     <a class="btn btn-primary m-b-2" asp-action="Detailer" asp-controller="Home"> Detailer</a>
-                    <a class="btn btn-primary m-b-2" asp-action="Client" asp-controller="Home"> Client</a>
+                    <a class="btn btn-primary m-b-2" asp-action="Index" asp-controller="Home"> Admin</a>
                     <a class="btn btn-primary m-b-2" asp-action="Vendors" asp-controller="Home"> Vendors</a>
                 </div>
-                <h3>Admin Details</h3>
+                <h3>Clients Details</h3>
                 <div class="clearfix"></div>
                 <table class="table">
                     <tr class="active text-uppercase">
@@ -41,14 +41,14 @@
                         <th>Email Id</th>
                         <th>Phone Number</th>
                         <th>Details</th>
-                        <th>Edit</th>    
+                        <th>Edit</th> 
                         <th>Delete</th>
                     </tr>
 
                     @foreach (var userdetails in Model.users)
-        {
-            @Html.Partial("_Summary", userdetails);
-}
+                    {
+                        @Html.Partial("_Summary", userdetails);
+                    }
 
                 </table>
             </div>
