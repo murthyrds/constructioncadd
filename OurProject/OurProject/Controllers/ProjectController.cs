@@ -15,6 +15,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using ReflectionIT.Mvc.Paging;
 
+
 namespace OurProject.Controllers
 {
     [Authorize]
@@ -116,7 +117,18 @@ namespace OurProject.Controllers
             //var model = await PagingList.CreateAsync(qry, 10, page);
             //return View(model);
         }
-        
+
+        [HttpGet]
+        public IActionResult Index(int id)
+        {
+            var model = _projectData.Get(id);
+            if (model == null)
+            {
+                return RedirectToAction("Index");
+            }
+            return View(model);
+        }
+
         [HttpGet]
         public IActionResult Edit(int id)
         {
@@ -169,6 +181,18 @@ namespace OurProject.Controllers
                 return RedirectToAction("Details");                
             }
             return View();
-        }        
+        }
+        
+        public async Task<IActionResult> Delete(int id)
+        {
+            var model = _projectData.Get(id);
+            if(model != null)
+            {
+                _context.Projects.Remove(_context.Projects.FirstOrDefault(e => e.ProjectId == id));
+                _projectData.commit();
+                return RedirectToAction("Details");
+            }
+            return RedirectToAction("Details");
+        }
     }
 }

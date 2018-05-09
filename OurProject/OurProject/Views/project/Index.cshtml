@@ -1,0 +1,85 @@
+﻿@model Project
+@{
+    ViewData["Title"] = "Index";
+    
+}
+<div class="content">
+    <div class="container-fluid my_board">
+        <div class="col-md-12">
+            <div class="whitebox">
+                <form asp-action="post" asp-antiforgery="true">
+                    <table class="table table-bordered">
+
+                        <tr>
+                            <td>
+                                <label asp-for="@Model.ProjectNumber">Project Id: </label>
+                            </td>
+                            <td>
+                                <p>@Model.ProjectNumber</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label asp-for="@Model.ProjectName">Project Name: </label>
+                            </td>
+                            <td>
+                                <p>@Model.ProjectName</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label asp-for="@Model.StockLength">Stock Length: </label>
+                            </td>
+                            <td>
+                                <p>@Model.StockLength</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label asp-for="@Model.StandardsType">Standards Type:</label>
+                            </td>
+                            <td>
+                                <p>@Model.StandardsType</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label asp-for="@Model.AccessoriesList">Accessories List:</label>
+                            </td>
+                            <td>
+                                <p>@Model.AccessoriesList</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label asp-for="@Model.SuportBar">Suport Bar:</label>
+                            </td>
+                            <td>
+                                <p>@Model.SuportBar</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label asp-for="@Model.TitleBlock">Title Block:</label>
+                            </td>
+                            <td>
+                                <p>@Model.TitleBlock</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label asp-for="@Model.Description">Description:</label>
+                            </td>
+                            <td>
+                                <p>@Model.Description</p>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <a asp-action="Details" asp-controller="Project" class="btn btn-primary">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

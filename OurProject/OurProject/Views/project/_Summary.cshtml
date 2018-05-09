@@ -17,27 +17,57 @@
         background-color: #dddddd;
     }
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    $(function () {
 
-            @*<h3 class="panel-heading"> @Model.ProjectName</h3>
-                <div class="panel-body">
-                    Standard Type : @Model.StandardsType
-                </div>*@
-            @*<div class="panel-footer">
-                    <a class="btn btn-primary" asp-action="Details" asp-route-id="@Model.ProjectId">Detail</a>
-                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.ProjectId">Edit</a>
-                </div>*@
+        $('a[id*=btnDelete]').click(function (e) {
+            debugger;
+            e.preventDefault();
+            var id = $(this).parent()[0].id;
+            $('#confirmDialog').data('id', id).dialog('open');
+        });
+
+        $("#confirmDialog").dialog({
+            autoOpen: false,
+            modal: true,
+            resizable: false,
+            buttons: {
+                "Ok": function () {
+                    var id = $(this).data("id");
+                    window.location.href = '/Project/Delete/' + id;
+                },
+                "Cancel": function (e) {
+                    $(this).dialog("close");
+                }
+            },
+        });
+    });
+
+</script>
+
+@*<h3 class="panel-heading"> @Model.ProjectName</h3>
+    <div class="panel-body">
+        Standard Type : @Model.StandardsType
+    </div>*@
+@*<div class="panel-footer">
+        <a class="btn btn-primary" asp-action="Details" asp-route-id="@Model.ProjectId">Detail</a>
+        <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.ProjectId">Edit</a>
+    </div>*@
 
 
-            <tr>
-                <td>@Model.ProjectNumber</td>
-                <td>@Model.ProjectName</td>
-                <td>@Model.StockLength</td>
-                <td>@Model.StandardsType</td>
-                <td>@Model.AccessoriesList</td>
-                <td>@Model.SuportBar</td>
-                <td>@Model.TitleBlock</td>
-                <td><a class="btn btn-primary" asp-action="Details" asp-route-id="@Model.ProjectId">Detail</a> </td>
-                <td><a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.ProjectId">Edit</a></td>
-            </tr>
+<tr>
+    <td>@Model.ProjectNumber</td>
+    <td>@Model.ProjectName</td>
+    <td>@Model.StockLength</td>
+    <td>@Model.StandardsType</td>
+    <td>@Model.AccessoriesList</td>
+    <td>@Model.SuportBar</td>
+    <td>@Model.TitleBlock</td>
+    <td><a class="btn btn-primary" asp-action="Index" asp-route-id="@Model.ProjectId">Detail</a> </td>
+    <td><a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.ProjectId">Edit</a></td>
+    
+    <td id="@Model.ProjectId">
+    @Html.ActionLink("Delete", "Delete", new { id = @Model.ProjectId}, new { @id= "btnDelete" })
+    </td>
+</tr>
 
- 

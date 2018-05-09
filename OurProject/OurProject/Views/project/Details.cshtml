@@ -31,7 +31,8 @@
     <div class="container-fluid my_board">
         <div class="col-md-12">
             <div class="whitebox">
-                <a asp-action="Create" calss="btn btn-primary">Create Project</a>             
+                <a calss="btn btn-primary" asp-action="Create">Create Project</a>
+                
                 <table class="table">
                     <tr class="active">
                         <th>Project Id</th>
@@ -43,6 +44,7 @@
                         <th>Title Block</th>
                         <th>View</th>
                         <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
                     @foreach (var prjdetails in Model.Projects)
         {

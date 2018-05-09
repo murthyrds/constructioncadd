@@ -51,6 +51,6 @@ namespace OurProject.Services
         public IEnumerable<Project> GetAll()
         {
             return _context.Projects;
-        }
+        }        
     }   
 }
