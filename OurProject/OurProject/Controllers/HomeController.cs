@@ -101,11 +101,9 @@ namespace OurProject.Controllers
             }
             return View(model);
         }
-
-       
+               
         public async Task<IActionResult> Delete(string Id)
-        {
-
+        {            
             //get User Data from Userid
             var user = await _userManager.FindByIdAsync(Id);
 
@@ -116,27 +114,22 @@ namespace OurProject.Controllers
             var rolesForUser = await _userManager.GetRolesAsync(user);
 
             using (var transaction = _context.Database.BeginTransaction())
-            {
-
+            {                 
                 if (rolesForUser.Count() > 0)
                 {
                     foreach (var item in rolesForUser.ToList())
                     {
-                        // item should be the name of the role
-                        var result = await _userManager.RemoveFromRoleAsync(user, item);
+                        // item should be the name of the role                                            
+                        await _userManager.RemoveFromRoleAsync(user, item);
+                        _userData.Commit();
                     }
                 }
 
                 //Delete User
-                await _userManager.DeleteAsync(user);
-
-                TempData["Message"] = "User Deleted Successfully. ";
-                TempData["MessageValue"] = "1";
-                //transaction.commit();
+             await _userManager.DeleteAsync(user);
+                _userData.Commit();               
             }
-
             return RedirectToAction("Index", "Home");
         }
-
     }
 }
