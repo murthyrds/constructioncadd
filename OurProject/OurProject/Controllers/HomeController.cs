@@ -26,7 +26,7 @@ namespace OurProject.Controllers
         }
 
         //Get the admin detail's.
-        [Authorize(Roles = "Admin")]
+        
         public IActionResult Index()
         {
             var model = new DetailsModel();
